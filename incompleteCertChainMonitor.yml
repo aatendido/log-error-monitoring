@@ -1,0 +1,17 @@
+# Use to call script that will check for errors indicating incomplete cert chain
+# Author: Alvin Atendido (alvin_atendido@manulife.com)
+#---
+integrations:
+  - name: nri-flex
+    interval: 1m # m stands for minutes
+    config:
+      name: IncompleteCertChainTestOnly
+      apis:
+        - name: IncompleteCertChainTestOnly
+          timeout: 300000 # in milliseconds
+          commands:
+            - run: '/tech/admin/monitoring/incompleteCertChainMonitor/incompleteCertChainMonitor.sh 1 > /dev/null 2>&1; sleep 2s; cat /tech/admin/monitoring/incompleteCertChainMonitor/Logs/incompleteCertChainMonitor.sh.lastrunresults.log'
+              split: horizontal
+              split_by: \|
+              regex_match: false
+              set_header: [hostName, fileTimestamp, fileName, errorString, lineNumber, logEntry, countOfLogs]
