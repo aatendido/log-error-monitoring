@@ -2,7 +2,7 @@
 - name: Deploy log monitoring script
   hosts: all
   tasks:
-    - name: TEST ONLY: Create script with inline content
+    - name: TEST ONLY - Create script with inline content
       copy:
         content: |
           #!/bin/bash
