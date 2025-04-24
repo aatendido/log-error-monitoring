@@ -7,5 +7,5 @@
         content: |
           #!/bin/bash
           echo "Hello, World!"
-        dest: /tech/admin/monitoring/incompleteCertChainMonitor/xxx.sh
+        dest: /home/etswoeadm1/xxx.sh
         mode: '0755'
