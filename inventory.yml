@@ -1,0 +1,5 @@
+---
+all:
+  hosts:
+    AZLAPPJISDCD17:
+      ansible_env: Non_Prod
