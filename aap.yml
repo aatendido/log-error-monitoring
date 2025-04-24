@@ -1,0 +1,15 @@
+---
+- name: Deploy log monitoring script
+  hosts: all
+  tasks:
+    - name: Copy script to server
+      copy:
+        src: /home/etswoeadm1/CPSRELENG/logErrorMonitor/logErrorMonitor.sh
+        dest: /tech/admin/monitoring/incompleteCertChainMonitor/logErrorMonitor.sh
+        mode: '0755'
+
+    - name: Copy JSON configuration to server
+      copy:
+        src: /home/etswoeadm1/CPSRELENG/logErrorMonitor/searchPairs.json
+        dest: /tech/admin/monitoring/incompleteCertChainMonitor/searchPairs.json
+        mode: '0644'
